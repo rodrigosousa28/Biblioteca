@@ -504,6 +504,7 @@ public class BorrowBooks extends javax.swing.JFrame {
         
         try {
 			tableModelBook.refreshData(dao.listAllBooks(true));
+			tableModelUser.refreshData(dao.listAllUsersWithoutDebt());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
