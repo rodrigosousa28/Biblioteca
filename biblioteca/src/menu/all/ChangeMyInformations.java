@@ -2,6 +2,8 @@ package menu.all;
 
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -448,9 +450,19 @@ public class ChangeMyInformations extends javax.swing.JFrame {
 
     private void btnConfirmChangesActionPerformed(java.awt.event.ActionEvent evt) {
     	DAO dao = new DAO();
+    	List<String> equals = new ArrayList<>();
+    	List<String> valids = new ArrayList<>();
+    	
+    	int quantities = 0;
     	
     	if(cbbName.isSelected()) {
     		try {
+    			quantities++;
+    			if(txtName.getText().equals(user.getName())) {
+    				equals.add("Nome");
+    			}else {
+    				valids.add("Nome");
+    			}
 				dao.updateName(user, txtName.getText());
 			} catch (SQLException e) {
 				JOptionPane.showMessageDialog(this, "Não foi possível alterar o nome");
@@ -460,7 +472,13 @@ public class ChangeMyInformations extends javax.swing.JFrame {
     	}
     	
     	if(cbbLogin.isSelected()) {
+    		quantities++;
     		try {
+    			if(txtLogin.getText().equals(user.getUsername())) {
+    				equals.add("Login");
+    			}else {
+    				valids.add("Login");
+    			}
 				dao.updateUsername(user, txtLogin.getText());
 			} catch (SQLException e) {
 				JOptionPane.showMessageDialog(this, "Não foi possível alterar o login");
@@ -470,7 +488,13 @@ public class ChangeMyInformations extends javax.swing.JFrame {
     	}
     	
     	if(cbbRegistrationNumber.isSelected()) {
+    		quantities++;
     		try {
+    			if(txtRegistrationNumber.getText().equals(user.getRegistrationNumber())) {
+    				equals.add("Matrícula");
+    			}else {
+    				valids.add("Matrícula");
+    			}
 				dao.updateRegistrationNumber(user, txtRegistrationNumber.getText());
 			} catch (SQLException e) {
 				JOptionPane.showMessageDialog(this, "Não foi possível alterar a matrícula");
@@ -480,13 +504,17 @@ public class ChangeMyInformations extends javax.swing.JFrame {
     	}
     	
     	if(cbbPassword.isSelected()) {
+    		quantities++;
     		try {
     			String newPass = "";
     			for(int i = 0; i < txtPassword.getPassword().length; i++) {
     				newPass += txtPassword.getPassword()[i];
     			}
-    			
-    			JOptionPane.showMessageDialog(this, newPass);
+    			if(newPass.equals(user.getPassword())) {
+    				equals.add("Senha");
+    			}else {
+    				valids.add("Senha");
+    			}
 				dao.updatePassword(user, newPass);
 				
 			} catch (SQLException e) {
@@ -494,8 +522,33 @@ public class ChangeMyInformations extends javax.swing.JFrame {
 				e.printStackTrace();
 				return;
 			}
-    	}	
-    	JOptionPane.showMessageDialog(this, "Dados alterados com sucesso");
+    	}
+    	
+    	if(equals.size() > 0) {
+    		String equalsString = "";
+    		for(int i = 0; i < equals.size(); i++) {
+    			equalsString = equalsString.concat(equals.get(i));
+    			if(i < equals.size() - 1) {
+    				equalsString = equalsString.concat(", ");
+    			}
+    		}
+    		JOptionPane.showMessageDialog(this, "Os seguintes itens não foram alterados por serem iguais aos anteriores: ".concat(equalsString));
+    	}
+    	
+    	if(equals.size() < quantities) {
+    		String validString = "";
+    		for(int i = 0; i < valids.size(); i++) {
+    			validString = validString.concat(valids.get(i));
+    			if(i < valids.size() - 1) {
+    				validString = validString.concat(", ");
+    			}
+    		}
+    		JOptionPane.showMessageDialog(this, validString.concat(" alterado com sucesso. Você será redirecionado para a tela de login"));
+    		LoginScreen ls = new LoginScreen();
+    		ls.setVisible(true);
+    		this.dispose();    		
+    	}
+    	
     	dao.close();
     }
     
