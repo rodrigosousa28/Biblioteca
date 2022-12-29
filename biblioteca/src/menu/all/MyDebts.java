@@ -38,7 +38,7 @@ public class MyDebts extends javax.swing.JFrame {
         lblLibrary = new javax.swing.JLabel();
         lblBackgroundHead = new javax.swing.JLabel();
         lblBackgroundDebt = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblMyDebts = new javax.swing.JLabel();
         lblMyBooksIcon = new javax.swing.JLabel();
         lblHistoricBackground = new javax.swing.JLabel();
         lblBackgroundLibrary = new javax.swing.JLabel();
@@ -142,12 +142,12 @@ public class MyDebts extends javax.swing.JFrame {
         getContentPane().add(lblBackgroundDebt);
         lblBackgroundDebt.setBounds(130, 280, 140, 140);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Minhas Dívidas");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(280, 310, 300, 80);
+        lblMyDebts.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
+        lblMyDebts.setForeground(new java.awt.Color(102, 0, 0));
+        lblMyDebts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMyDebts.setText("Minhas Dívidas");
+        getContentPane().add(lblMyDebts);
+        lblMyDebts.setBounds(280, 310, 300, 80);
 
         lblMyBooksIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/books.png"))); // NOI18N
         lblMyBooksIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -305,7 +305,7 @@ public class MyDebts extends javax.swing.JFrame {
         });
     }
 
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblMyDebts;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblBackgroundDebt;
     private javax.swing.JLabel lblBackgroundHead;

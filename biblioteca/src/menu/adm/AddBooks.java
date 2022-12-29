@@ -62,7 +62,7 @@ public class AddBooks extends javax.swing.JFrame {
         lblBackgroundMyInformations = new javax.swing.JLabel();
         lblBackgroundDebt1 = new javax.swing.JLabel();
         lblReceiveBooks = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAddBook = new javax.swing.JLabel();
         lblBackgroundMain1 = new javax.swing.JLabel();
         panelImage = new javax.swing.JPanel();
         lblImage = new javax.swing.JLabel();
@@ -225,12 +225,12 @@ public class AddBooks extends javax.swing.JFrame {
         getContentPane().add(lblReceiveBooks);
         lblReceiveBooks.setBounds(130, 290, 140, 140);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 40)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Adicionar Livro");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(220, 280, 340, 80);
+        lblAddBook.setFont(new java.awt.Font("Maiandra GD", 1, 40)); // NOI18N
+        lblAddBook.setForeground(new java.awt.Color(102, 0, 0));
+        lblAddBook.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddBook.setText("Adicionar Livro");
+        getContentPane().add(lblAddBook);
+        lblAddBook.setBounds(220, 280, 340, 80);
 
         lblBackgroundMain1.setBackground(new java.awt.Color(255, 255, 255));
         lblBackgroundMain1.setOpaque(true);
@@ -553,7 +553,7 @@ public class AddBooks extends javax.swing.JFrame {
     private File image;
     private javax.swing.JToggleButton btnSave;
     private javax.swing.JToggleButton btnSelectImage;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAddBook;
     private javax.swing.JLabel lblAuthor;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblBackgroundDebt1;

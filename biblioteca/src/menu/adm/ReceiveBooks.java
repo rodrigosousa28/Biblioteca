@@ -59,7 +59,7 @@ public class ReceiveBooks extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        panel = new javax.swing.JPanel();
         lblSearchBy = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
@@ -229,8 +229,8 @@ public class ReceiveBooks extends javax.swing.JFrame {
         getContentPane().add(scroll);
         scroll.setBounds(120, 600, 590, 190);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        panel.setBackground(new java.awt.Color(255, 255, 255));
+        panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         lblSearchBy.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         lblSearchBy.setForeground(new java.awt.Color(51, 0, 0));
@@ -249,8 +249,8 @@ public class ReceiveBooks extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -273,8 +273,8 @@ public class ReceiveBooks extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(120, 530, 590, 50);
+        getContentPane().add(panel);
+        panel.setBounds(120, 530, 590, 50);
         
         panelFilterSearch.setBackground(new java.awt.Color(255, 255, 255));
         panelFilterSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -592,7 +592,7 @@ public class ReceiveBooks extends javax.swing.JFrame {
     private com.toedter.calendar.JCalendar jCalendar;
     private javax.swing.JComboBox<String> cbbChoiceType;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panel;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JTable table;

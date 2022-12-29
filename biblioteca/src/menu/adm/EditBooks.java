@@ -54,8 +54,8 @@ public class EditBooks extends javax.swing.JFrame {
         lblBackgroundMyInformations = new javax.swing.JLabel();
         lblBackgroundDebt1 = new javax.swing.JLabel();
         lblReceiveBooks = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblEditOrRemove = new javax.swing.JLabel();
+        lblBookName = new javax.swing.JLabel();
         lblAuthor = new javax.swing.JLabel();
         lblPages = new javax.swing.JLabel();
         lblGenreOne = new javax.swing.JLabel();
@@ -68,7 +68,7 @@ public class EditBooks extends javax.swing.JFrame {
         cbbName = new javax.swing.JCheckBox();
         cbbAuthor = new javax.swing.JCheckBox();
         cbbPages = new javax.swing.JCheckBox();
-        jLabel5 = new javax.swing.JLabel();
+        lblInstruction = new javax.swing.JLabel();
         lblStock = new javax.swing.JLabel();
         txtPages = new javax.swing.JTextField();
         txtGenreOne = new javax.swing.JTextField();
@@ -234,18 +234,18 @@ public class EditBooks extends javax.swing.JFrame {
         getContentPane().add(lblReceiveBooks);
         lblReceiveBooks.setBounds(120, 260, 140, 130);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Editar ou remover Livros");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(250, 280, 530, 80);
+        lblEditOrRemove.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
+        lblEditOrRemove.setForeground(new java.awt.Color(102, 0, 0));
+        lblEditOrRemove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditOrRemove.setText("Editar ou remover Livros");
+        getContentPane().add(lblEditOrRemove);
+        lblEditOrRemove.setBounds(250, 280, 530, 80);
 
-        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel3.setText("Nome:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(560, 450, 60, 40);
+        lblBookName.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        lblBookName.setForeground(new java.awt.Color(51, 0, 0));
+        lblBookName.setText("Nome:");
+        getContentPane().add(lblBookName);
+        lblBookName.setBounds(560, 450, 60, 40);
 
         lblAuthor.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         lblAuthor.setForeground(new java.awt.Color(51, 0, 0));
@@ -345,11 +345,11 @@ public class EditBooks extends javax.swing.JFrame {
         cbbPages.setBounds(990, 530, 240, 19);
         cbbPages.setOpaque(false);
 
-        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel5.setText("Marque os campos que deseja alterar:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(980, 430, 270, 30);
+        lblInstruction.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        lblInstruction.setForeground(new java.awt.Color(51, 0, 0));
+        lblInstruction.setText("Marque os campos que deseja alterar:");
+        getContentPane().add(lblInstruction);
+        lblInstruction.setBounds(980, 430, 270, 30);
 
         lblStock.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         lblStock.setForeground(new java.awt.Color(51, 0, 0));
@@ -798,11 +798,11 @@ public class EditBooks extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbbPages;
     private javax.swing.JCheckBox cbbGenreTwo;
     private javax.swing.JCheckBox cbbStock;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblEditOrRemove;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblBookName;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblInstruction;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane scrollBooks;
     private javax.swing.JTable tableBooks;

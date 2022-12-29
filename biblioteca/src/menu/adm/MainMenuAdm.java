@@ -42,7 +42,7 @@ public class MainMenuAdm extends javax.swing.JFrame {
         lblBackgroundHead = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lblMyBooksIcon = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblMyBooks = new javax.swing.JLabel();
         lblHistoricBackground = new javax.swing.JLabel();
         lblHistoric = new javax.swing.JLabel();
         lblBackgroundLibrary = new javax.swing.JLabel();
@@ -50,9 +50,9 @@ public class MainMenuAdm extends javax.swing.JFrame {
         lblBackgroundMyInformations = new javax.swing.JLabel();
         lblLibraryAdmin = new javax.swing.JLabel();
         lblMyInformations = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblMyDebts = new javax.swing.JLabel();
         lblBackgroundAlexandria = new javax.swing.JLabel();
-        lblBackgroundDebt1 = new javax.swing.JLabel();
+        lblBackgroundDebt = new javax.swing.JLabel();
         lblManageLibrary = new javax.swing.JLabel();
         lblBackgroundMain = new javax.swing.JLabel();
 
@@ -159,11 +159,11 @@ public class MainMenuAdm extends javax.swing.JFrame {
         getContentPane().add(lblMyBooksIcon);
         lblMyBooksIcon.setBounds(130, 300, 70, 80);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Meus Livros");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(100, 390, 120, 20);
+        lblMyBooks.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        lblMyBooks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMyBooks.setText("Meus Livros");
+        getContentPane().add(lblMyBooks);
+        lblMyBooks.setBounds(100, 390, 120, 20);
 
         lblHistoricBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/historic.png"))); // NOI18N
         lblHistoricBackground.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -223,25 +223,25 @@ public class MainMenuAdm extends javax.swing.JFrame {
         getContentPane().add(lblMyInformations);
         lblMyInformations.setBounds(790, 380, 120, 20);
 
-        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Minhas Dívidas");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(1010, 380, 140, 20);
+        lblMyDebts.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        lblMyDebts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMyDebts.setText("Minhas Dívidas");
+        getContentPane().add(lblMyDebts);
+        lblMyDebts.setBounds(1010, 380, 140, 20);
 
         lblBackgroundAlexandria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alexandria.png"))); // NOI18N
         getContentPane().add(lblBackgroundAlexandria);
         lblBackgroundAlexandria.setBounds(630, 520, 250, 310);
 
-        lblBackgroundDebt1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/divida.png"))); // NOI18N
-        lblBackgroundDebt1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblBackgroundDebt1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblBackgroundDebt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/divida.png"))); // NOI18N
+        lblBackgroundDebt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblBackgroundDebt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblBackgroundDebt1MouseClicked(evt);
             }
         });
-        getContentPane().add(lblBackgroundDebt1);
-        lblBackgroundDebt1.setBounds(1050, 290, 70, 80);
+        getContentPane().add(lblBackgroundDebt);
+        lblBackgroundDebt.setBounds(1050, 290, 70, 80);
 
         lblManageLibrary.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         lblManageLibrary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -366,12 +366,12 @@ public class MainMenuAdm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblMyBooks;
+    private javax.swing.JLabel lblMyDebts;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAvailableBooks;
     private javax.swing.JLabel lblBackgroundAlexandria;
-    private javax.swing.JLabel lblBackgroundDebt1;
+    private javax.swing.JLabel lblBackgroundDebt;
     private javax.swing.JLabel lblBackgroundHead;
     private javax.swing.JLabel lblBackgroundLibrary;
     private javax.swing.JLabel lblBackgroundMain;

@@ -14,7 +14,7 @@ public class Login extends javax.swing.JFrame {
 
         txtLogin = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
         btnLogin = new javax.swing.JToggleButton();
         lblForgotPass = new javax.swing.JLabel();
         lblRegister = new javax.swing.JLabel();
@@ -37,11 +37,11 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(txtPassword);
         txtPassword.setBounds(390, 270, 190, 30);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 22));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LOGIN");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(360, 120, 240, 30);
+        lblLogin.setFont(new java.awt.Font("Maiandra GD", 1, 22));
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setText("LOGIN");
+        getContentPane().add(lblLogin);
+        lblLogin.setBounds(360, 120, 240, 30);
 
         btnLogin.setBackground(new java.awt.Color(210, 69, 59));
         btnLogin.setFont(new java.awt.Font("Maiandra GD", 1, 14));
@@ -125,7 +125,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JToggleButton btnLogin;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblForgotPass;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblRegister;

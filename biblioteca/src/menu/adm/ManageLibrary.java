@@ -39,7 +39,7 @@ public class ManageLibrary extends javax.swing.JFrame {
         lblLibrary = new javax.swing.JLabel();
         lblBackgroundHead = new javax.swing.JLabel();
         lblLibraryAdmin = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAdm = new javax.swing.JLabel();
         lblMyBooksIcon = new javax.swing.JLabel();
         lblHistoricBackground = new javax.swing.JLabel();
         lblBackgroundLibrary = new javax.swing.JLabel();
@@ -153,12 +153,12 @@ public class ManageLibrary extends javax.swing.JFrame {
         getContentPane().add(lblLibraryAdmin);
         lblLibraryAdmin.setBounds(130, 280, 140, 140);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Administração");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(280, 310, 300, 80);
+        lblAdm.setFont(new java.awt.Font("Maiandra GD", 1, 42));
+        lblAdm.setForeground(new java.awt.Color(102, 0, 0));
+        lblAdm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdm.setText("Administração");
+        getContentPane().add(lblAdm);
+        lblAdm.setBounds(280, 310, 300, 80);
 
         lblMyBooksIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/books.png"))); // NOI18N
         lblMyBooksIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -424,7 +424,7 @@ public class ManageLibrary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAdm;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblBackgroundDebt1;
     private javax.swing.JLabel lblBackgroundHead;

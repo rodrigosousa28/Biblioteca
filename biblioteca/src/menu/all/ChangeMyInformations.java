@@ -43,12 +43,12 @@ public class ChangeMyInformations extends javax.swing.JFrame {
         lblLibrary = new javax.swing.JLabel();
         lblBackgroundHead = new javax.swing.JLabel();
         lblBackgroundMyInformations = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblChangeInformations = new javax.swing.JLabel();
         lblMyBooksIcon = new javax.swing.JLabel();
         lblHistoricBackground = new javax.swing.JLabel();
         lblBackgroundLibrary = new javax.swing.JLabel();
         lblBackgroundDebt = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         lblRegistrationNumber = new javax.swing.JLabel();
         lblLogin = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
@@ -62,7 +62,7 @@ public class ChangeMyInformations extends javax.swing.JFrame {
         cbbRegistrationNumber = new javax.swing.JCheckBox();
         cbbLogin = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblInstructions = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblAlexandria = new javax.swing.JLabel();
         lblBackgroundMain = new javax.swing.JLabel();
@@ -163,12 +163,12 @@ public class ChangeMyInformations extends javax.swing.JFrame {
         getContentPane().add(lblBackgroundMyInformations);
         lblBackgroundMyInformations.setBounds(130, 280, 140, 140);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Alterar Dados de Cadastro");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(250, 300, 600, 80);
+        lblChangeInformations.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
+        lblChangeInformations.setForeground(new java.awt.Color(102, 0, 0));
+        lblChangeInformations.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblChangeInformations.setText("Alterar Dados de Cadastro");
+        getContentPane().add(lblChangeInformations);
+        lblChangeInformations.setBounds(250, 300, 600, 80);
 
         lblMyBooksIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/books.png"))); // NOI18N
         lblMyBooksIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -210,11 +210,11 @@ public class ChangeMyInformations extends javax.swing.JFrame {
         getContentPane().add(lblBackgroundDebt);
         lblBackgroundDebt.setBounds(1370, 580, 70, 90);
 
-        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel3.setText("Nome:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(320, 480, 60, 40);
+        lblName.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(51, 0, 0));
+        lblName.setText("Nome:");
+        getContentPane().add(lblName);
+        lblName.setBounds(320, 480, 60, 40);
 
         lblRegistrationNumber.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         lblRegistrationNumber.setForeground(new java.awt.Color(51, 0, 0));
@@ -327,11 +327,11 @@ public class ChangeMyInformations extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(850, 490, 270, 160);
 
-        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel5.setText("Marque os campos que deseja alterar:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(850, 460, 270, 30);
+        lblInstructions.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        lblInstructions.setForeground(new java.awt.Color(51, 0, 0));
+        lblInstructions.setText("Marque os campos que deseja alterar:");
+        getContentPane().add(lblInstructions);
+        lblInstructions.setBounds(850, 460, 270, 30);
 
         jLabel2.setForeground(new java.awt.Color(51, 0, 0));
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 0), 3, true));
@@ -598,11 +598,11 @@ public class ChangeMyInformations extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbbName;
     private javax.swing.JCheckBox cbbPassword;
     private javax.swing.JCheckBox cbbRegistrationNumber;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblChangeInformations;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblName;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblInstructions;
     private javax.swing.JLabel lblAlexandria;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblBackgroundDebt;

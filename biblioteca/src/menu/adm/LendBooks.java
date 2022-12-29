@@ -54,11 +54,11 @@ public class LendBooks extends javax.swing.JFrame {
         lblBackgroundMyInformations = new javax.swing.JLabel();
         lblBackgroundDebt1 = new javax.swing.JLabel();
         lblReceiveBooks = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblLend = new javax.swing.JLabel();
         scrollBooks = new javax.swing.JScrollPane();
         tableBooks = new javax.swing.JTable();
         jCalendar = new com.toedter.calendar.JCalendar();
-        btnBorrow = new javax.swing.JButton();
+        btnLend = new javax.swing.JButton();
         lblTitleChooseBook = new javax.swing.JLabel();
         scrollUsers = new javax.swing.JScrollPane();
         tableUsers = new javax.swing.JTable();
@@ -218,12 +218,12 @@ public class LendBooks extends javax.swing.JFrame {
         getContentPane().add(lblReceiveBooks);
         lblReceiveBooks.setBounds(130, 280, 140, 140);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Emprestar");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(260, 310, 300, 80);
+        lblLend.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
+        lblLend.setForeground(new java.awt.Color(102, 0, 0));
+        lblLend.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLend.setText("Emprestar");
+        getContentPane().add(lblLend);
+        lblLend.setBounds(260, 310, 300, 80);
 
         scrollBooks.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 0), 2));
         DAO dao = new DAO();
@@ -259,18 +259,18 @@ public class LendBooks extends javax.swing.JFrame {
         getContentPane().add(jCalendar);
         jCalendar.setBounds(930, 500, 360, 250);
 
-        btnBorrow.setBackground(new java.awt.Color(210, 69, 59));
-        btnBorrow.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        btnBorrow.setForeground(new java.awt.Color(255, 255, 255));
-        btnBorrow.setText("Emprestar");
-        btnBorrow.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 0, 0), 3, true));
-        btnBorrow.addActionListener(new java.awt.event.ActionListener() {
+        btnLend.setBackground(new java.awt.Color(210, 69, 59));
+        btnLend.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        btnLend.setForeground(new java.awt.Color(255, 255, 255));
+        btnLend.setText("Emprestar");
+        btnLend.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 0, 0), 3, true));
+        btnLend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrowActionPerformed(evt);
+                btnLendActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBorrow);
-        btnBorrow.setBounds(1140, 770, 130, 40);
+        getContentPane().add(btnLend);
+        btnLend.setBounds(1140, 770, 130, 40);
 
         lblTitleChooseBook.setFont(new java.awt.Font("Maiandra GD", 1, 22)); // NOI18N
         lblTitleChooseBook.setForeground(new java.awt.Color(51, 0, 0));
@@ -470,7 +470,7 @@ public class LendBooks extends javax.swing.JFrame {
         
     }                                             
 
-    private void btnBorrowActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void btnLendActionPerformed(java.awt.event.ActionEvent evt) {                                          
         SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
         String formatedDate = sd.format(this.jCalendar.getDate());
         
@@ -559,11 +559,11 @@ public class LendBooks extends javax.swing.JFrame {
     private TableModelUser tableModelUser;
     private TableModelBook tableModelBook;
     // Variables declaration - do not modify                     
-    private javax.swing.JButton btnBorrow;
+    private javax.swing.JButton btnLend;
     private javax.swing.JButton btnSearchBook;
     private javax.swing.JButton btnSearchUser;
     private com.toedter.calendar.JCalendar jCalendar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblLend;
     private javax.swing.JScrollPane scrollBooks;
     private javax.swing.JScrollPane scrollUsers;
     private javax.swing.JLabel lblBack;

@@ -41,7 +41,7 @@ public class Historic extends javax.swing.JFrame {
         lblLibrary = new javax.swing.JLabel();
         lblBackgroundHead = new javax.swing.JLabel();
         lblHistoricBackground = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblHistoricBooks = new javax.swing.JLabel();
         lblMyBooksIcon = new javax.swing.JLabel();
         lblBackgroundLibrary = new javax.swing.JLabel();
         lblBackgroundMyInformations = new javax.swing.JLabel();
@@ -157,12 +157,12 @@ public class Historic extends javax.swing.JFrame {
         getContentPane().add(lblHistoricBackground);
         lblHistoricBackground.setBounds(120, 270, 130, 140);
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Meu Histórico de empréstimos ");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(220, 300, 660, 70);
+        lblHistoricBooks.setFont(new java.awt.Font("Maiandra GD", 1, 42)); // NOI18N
+        lblHistoricBooks.setForeground(new java.awt.Color(102, 0, 0));
+        lblHistoricBooks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHistoricBooks.setText("Meu Histórico de empréstimos ");
+        getContentPane().add(lblHistoricBooks);
+        lblHistoricBooks.setBounds(220, 300, 660, 70);
 
         lblMyBooksIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/books.png"))); // NOI18N
         lblMyBooksIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -440,7 +440,7 @@ public class Historic extends javax.swing.JFrame {
 
     private TableModelHistoric modelHistoricUser;
     // Variables declaration - do not modify                     
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblHistoricBooks;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblBackgroundDebt;
     private javax.swing.JLabel lblBackgroundHead;
