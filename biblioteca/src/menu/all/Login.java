@@ -2,11 +2,11 @@ package menu.all;
 
 import menu.Functionalities;
 
-public class LoginScreen extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = -1630497106798834635L;
 	
-	public LoginScreen() {
+	public Login() {
         initComponents();
     }
                        
@@ -100,7 +100,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }
 
     private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {                                         
-    	RegisterScreen rs = new RegisterScreen();
+    	Register rs = new Register();
     	this.dispose();
     	rs.setVisible(true);
     }
@@ -115,11 +115,11 @@ public class LoginScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
         java.awt.EventQueue.invokeLater(() -> {
-            new LoginScreen().setVisible(true);
+            new Login().setVisible(true);
         });
     }
 

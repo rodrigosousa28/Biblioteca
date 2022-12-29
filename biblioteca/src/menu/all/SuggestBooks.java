@@ -1,7 +1,11 @@
 package menu.all;
 
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import data_base.DAO;
 import entities.Book;
 import entities.User;
 import menu.Functionalities;
@@ -49,24 +53,6 @@ public class SuggestBooks extends javax.swing.JFrame {
         lblSuggestBooks = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         panelBackgroundBooks = new javax.swing.JPanel();
-        panelImage1 = new javax.swing.JPanel();
-        lblImageBook1 = new javax.swing.JLabel();
-        lblName1 = new javax.swing.JLabel();
-        lblAuthor1 = new javax.swing.JLabel();
-        lblPages1 = new javax.swing.JLabel();
-        panelImage2 = new javax.swing.JPanel();
-        lblImageBook2 = new javax.swing.JLabel();
-        lblName2 = new javax.swing.JLabel();
-        lblGenre1 = new javax.swing.JLabel();
-        panelImage3 = new javax.swing.JPanel();
-        lblImageBook3 = new javax.swing.JLabel();
-        lblGenre2 = new javax.swing.JLabel();
-        lblPages2 = new javax.swing.JLabel();
-        lblName3 = new javax.swing.JLabel();
-        lblAuthor3 = new javax.swing.JLabel();
-        lblGenre3 = new javax.swing.JLabel();
-        lblPages3 = new javax.swing.JLabel();
-        lblAuthor2 = new javax.swing.JLabel();
         lblBackgroundMain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -215,79 +201,6 @@ public class SuggestBooks extends javax.swing.JFrame {
         panelBackgroundBooks.setMinimumSize(new java.awt.Dimension(390, 630));
         panelBackgroundBooks.setLayout(null);
 
-        panelImage1.setLayout(null);
-        panelImage1.add(lblImageBook1);
-        panelImage1.setBackground(new java.awt.Color(255, 255, 255));
-        lblImageBook1.setBounds(6, 5, 100, 130);
-
-        panelBackgroundBooks.add(panelImage1);
-        panelImage1.setBounds(118, 76, 110, 140);
-
-        lblName1.setBackground(new java.awt.Color(102, 204, 255));
-        lblName1.setText("Nome:");
-        panelBackgroundBooks.add(lblName1);
-        lblName1.setBounds(110, 230, 250, 20);
-
-        lblAuthor1.setText("Autor:");
-        panelBackgroundBooks.add(lblAuthor1);
-        lblAuthor1.setBounds(110, 250, 220, 30);
-
-        lblPages1.setText("Páginas:");
-        panelBackgroundBooks.add(lblPages1);
-        lblPages1.setBounds(110, 300, 220, 30);
-
-        panelImage2.setLayout(null);
-        panelImage2.add(lblImageBook2);
-        panelImage2.setBackground(new java.awt.Color(255, 255, 255));
-        lblImageBook2.setBounds(0, 0, 110, 140);
-
-        panelBackgroundBooks.add(panelImage2);
-        panelImage2.setBounds(520, 70, 110, 140);
-
-        lblName2.setText("Nome:");
-        panelBackgroundBooks.add(lblName2);
-        lblName2.setBounds(510, 220, 250, 20);
-
-        lblGenre1.setText("Gênero(s):");
-        panelBackgroundBooks.add(lblGenre1);
-        lblGenre1.setBounds(110, 280, 220, 20);
-
-        panelImage3.setLayout(null);
-        panelImage3.add(lblImageBook3);
-        lblImageBook3.setBounds(0, 0, 110, 140);
-        panelImage3.setBackground(new java.awt.Color(255, 255, 255));
-
-        panelBackgroundBooks.add(panelImage3);
-        panelImage3.setBounds(940, 80, 110, 140);
-
-        lblGenre2.setText("Gênero(s):");
-        panelBackgroundBooks.add(lblGenre2);
-        lblGenre2.setBounds(510, 270, 210, 20);
-
-        lblPages2.setText("Páginas:");
-        panelBackgroundBooks.add(lblPages2);
-        lblPages2.setBounds(510, 290, 210, 30);
-
-        lblName3.setText("Nome:");
-        panelBackgroundBooks.add(lblName3);
-        lblName3.setBounds(930, 230, 250, 20);
-
-        lblAuthor3.setText("Autor:");
-        panelBackgroundBooks.add(lblAuthor3);
-        lblAuthor3.setBounds(930, 250, 200, 30);
-
-        lblGenre3.setText("Gênero(s):");
-        panelBackgroundBooks.add(lblGenre3);
-        lblGenre3.setBounds(930, 270, 200, 40);
-
-        lblPages3.setText("Páginas:");
-        panelBackgroundBooks.add(lblPages3);
-        lblPages3.setBounds(930, 300, 200, 30);
-
-        lblAuthor2.setText("Autor:");
-        panelBackgroundBooks.add(lblAuthor2);
-        lblAuthor2.setBounds(510, 240, 210, 30);
-
         getContentPane().add(panelBackgroundBooks);
         panelBackgroundBooks.setBounds(30, 410, 1200, 390);
 
@@ -301,13 +214,14 @@ public class SuggestBooks extends javax.swing.JFrame {
     }// </editor-fold>  
     
     private void loadInformations(){
-        Functionalities.loadInformations
-        (book, lblName1, lblName2, lblName3,
-        		lblAuthor1, lblAuthor2, lblAuthor3,
-        		lblGenre1, lblGenre2, lblGenre3,
-        		lblPages1, lblPages2, lblPages3,
-        		panelImage1, panelImage2, panelImage3,
-        		lblImageBook1, lblImageBook2, lblImageBook3);
+    	DAO dao = new DAO();
+    	List<Book> books = new ArrayList<>();
+    	try {
+			books = dao.suggestBooks(book);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+        Functionalities.loadInformations(panelBackgroundBooks, books);
     }
 
     private void lblHistoricBackgroundMouseClicked(java.awt.event.MouseEvent evt) {                                                   
@@ -352,7 +266,7 @@ public class SuggestBooks extends javax.swing.JFrame {
 
     private void lblMyBooksMouseClicked(java.awt.event.MouseEvent evt) {                                        
     	if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen frame = new MyBooksScreen(user);
+            MyBooks frame = new MyBooks(user);
             frame.setVisible(true);
             this.dispose();
         }
@@ -400,9 +314,6 @@ public class SuggestBooks extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JLabel lblAuthor1;
-    private javax.swing.JLabel lblAuthor2;
-    private javax.swing.JLabel lblAuthor3;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblBackgroundDebt;
     private javax.swing.JLabel lblBackgroundHead;
@@ -410,28 +321,13 @@ public class SuggestBooks extends javax.swing.JFrame {
     private javax.swing.JLabel lblBackgroundMain;
     private javax.swing.JLabel lblBackgroundMyInformations;
     private javax.swing.JLabel lblExit;
-    private javax.swing.JLabel lblGenre1;
-    private javax.swing.JLabel lblGenre2;
-    private javax.swing.JLabel lblGenre3;
     private javax.swing.JLabel lblHistoricBackground;
-    private javax.swing.JLabel lblImageBook1;
-    private javax.swing.JLabel lblImageBook2;
-    private javax.swing.JLabel lblImageBook3;
     private javax.swing.JLabel lblLibrary;
     private javax.swing.JLabel lblMyBooks;
-    private javax.swing.JLabel lblName1;
-    private javax.swing.JLabel lblName2;
-    private javax.swing.JLabel lblName3;
-    private javax.swing.JLabel lblPages1;
-    private javax.swing.JLabel lblPages2;
-    private javax.swing.JLabel lblPages3;
     private javax.swing.JLabel lblPerfil;
     private javax.swing.JLabel lblSuggestBooks;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserFullName;
     private javax.swing.JPanel panelBackgroundBooks;
-    private javax.swing.JPanel panelImage1;
-    private javax.swing.JPanel panelImage2;
-    private javax.swing.JPanel panelImage3;
     // End of variables declaration                   
 }

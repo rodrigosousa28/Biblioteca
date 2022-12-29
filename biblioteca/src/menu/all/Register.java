@@ -8,10 +8,10 @@ import exceptions.InvalidCpfException;
 import exceptions.Validate;
 import menu.Functionalities;
 
-public class RegisterScreen extends javax.swing.JFrame {
+public class Register extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 6790827386162937234L;
-	public RegisterScreen() {
+	public Register() {
         initComponents();
     }
                          
@@ -175,7 +175,7 @@ public class RegisterScreen extends javax.swing.JFrame {
 		}
         
         JOptionPane.showMessageDialog(this, "Cadastro Realizado! Clique Ok para ir à tela de login");
-        LoginScreen ls = new LoginScreen();
+        Login ls = new Login();
         ls.setVisible(true);
         this.dispose();
     } 
@@ -209,7 +209,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     }
 
     private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {                                     
-    	LoginScreen ls = new LoginScreen();
+    	Login ls = new Login();
     	ls.setVisible(true);
     	this.dispose();
     }                                    
@@ -225,12 +225,12 @@ public class RegisterScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         
         java.awt.EventQueue.invokeLater(() -> {
-            new RegisterScreen().setVisible(true);
+            new Register().setVisible(true);
         });
     }
 

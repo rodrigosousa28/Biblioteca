@@ -219,7 +219,7 @@ public class RecoverPassword extends javax.swing.JFrame {
     }                                          
 
     private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {                                     
-        LoginScreen ls = new LoginScreen();
+        Login ls = new Login();
         ls.setVisible(true);
         this.dispose();
     }                                    

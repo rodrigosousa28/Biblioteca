@@ -6,7 +6,7 @@ import entities.User;
 import menu.Functionalities;
 import menu.all.AvailableBooks;
 import menu.all.Historic;
-import menu.all.MyBooksScreen;
+import menu.all.MyBooks;
 import menu.all.MyInformations;
 
 public class ManageLibrary extends javax.swing.JFrame {
@@ -206,7 +206,7 @@ public class ManageLibrary extends javax.swing.JFrame {
         getContentPane().add(lblBackgroundDebt1);
         lblBackgroundDebt1.setBounds(1380, 670, 70, 80);
 
-        lblBorrowBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/BorrowBooks.png"))); // NOI18N
+        lblBorrowBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LendBooks.png"))); // NOI18N
         lblBorrowBooks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBorrowBooks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -297,7 +297,7 @@ public class ManageLibrary extends javax.swing.JFrame {
 
     private void lblMyBooksIconMouseClicked(java.awt.event.MouseEvent evt) {                                            
         if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen frame = new MyBooksScreen(user);
+            MyBooks frame = new MyBooks(user);
             frame.setVisible(true);
             this.dispose();
         }
@@ -337,7 +337,7 @@ public class ManageLibrary extends javax.swing.JFrame {
 
     private void lblChangeMyInformationsMouseClicked(java.awt.event.MouseEvent evt) { 
     	if(evt.getButton()==MouseEvent.BUTTON1){
-    		MyBooksScreen mbs = new MyBooksScreen(user);
+    		MyBooks mbs = new MyBooks(user);
         	mbs.setVisible(true);
         	this.dispose();
         }
@@ -365,7 +365,7 @@ public class ManageLibrary extends javax.swing.JFrame {
 
     private void lblBorrowBooksMouseClicked(java.awt.event.MouseEvent evt) {                                            
         if(evt.getButton()==MouseEvent.BUTTON1){
-            BorrowBooks frame = new BorrowBooks(user);
+            LendBooks frame = new LendBooks(user);
             frame.setVisible(true);
             this.dispose();
         }

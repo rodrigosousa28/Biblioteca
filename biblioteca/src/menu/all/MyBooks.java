@@ -1,24 +1,26 @@
 package menu.all;
 
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
+import data_base.DAO;
+import entities.Book;
 import entities.User;
 import menu.Functionalities;
 import menu.adm.MainMenuAdm;
 
-public class MyBooksScreen extends javax.swing.JFrame {
+public class MyBooks extends javax.swing.JFrame {
     
 	private static final long serialVersionUID = 1131169882558835871L;
 	private User user;
 	
-    public MyBooksScreen() {
+    public MyBooks() {
         initComponents();
     }
     
-    public MyBooksScreen(User user) {
+    public MyBooks(User user) {
     	this.user = user;
     	initComponents();
     	setExtendedState(MAXIMIZED_BOTH);
@@ -44,8 +46,7 @@ public class MyBooksScreen extends javax.swing.JFrame {
         lblBackgroundMyInformations = new javax.swing.JLabel();
         lblBackgroundDebt = new javax.swing.JLabel();
         panelBackgroundBooks = new javax.swing.JPanel();
-        lblNoBooks = new javax.swing.JLabel();
-        //lblBackgroundMain = new javax.swing.JLabel();
+        lblBackgroundMain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1920, 920));
@@ -194,27 +195,31 @@ public class MyBooksScreen extends javax.swing.JFrame {
         panelBackgroundBooks.setMinimumSize(new java.awt.Dimension(390, 630));
         panelBackgroundBooks.setLayout(null);
 
-        lblNoBooks.setFont(new java.awt.Font("Maiandra GD", 1, 48)); // NOI18N
-        lblNoBooks.setForeground(new java.awt.Color(102, 0, 0));
-        lblNoBooks.setText("Você não possui livros no momento...");
-        panelBackgroundBooks.add(lblNoBooks);
-        lblNoBooks.setBounds(10, -20, 870, 370);
-        lblNoBooks.setVisible(false);
 
         getContentPane().add(panelBackgroundBooks);
         panelBackgroundBooks.setBounds(220, 430, 900, 440);
 
-        //lblBackgroundMain.setBackground(new java.awt.Color(255, 255, 255));
-        //lblBackgroundMain.setOpaque(true);
-        //getContentPane().add(lblBackgroundMain);
-        //lblBackgroundMain.setBounds(10, 260, 1540, 800);
+        lblBackgroundMain.setBackground(new java.awt.Color(255, 255, 255));
+        lblBackgroundMain.setOpaque(true);
+        getContentPane().add(lblBackgroundMain);
+        lblBackgroundMain.setBounds(10, 260, 1540, 800);
 
         loadInformations();
         pack();
     }
     
     private void loadInformations(){
-        Functionalities.loadInformations(panelBackgroundBooks, user);
+    	DAO dao = new DAO();
+    	List<Book> books = new ArrayList<>();
+    	
+		try {
+			books = dao.findBooksByUser(user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+        Functionalities.loadInformations(panelBackgroundBooks, books);
+        dao.close();
     }
     
     private void lblHistoricBackgroundMouseClicked(java.awt.event.MouseEvent evt) {                                                   
@@ -290,12 +295,12 @@ public class MyBooksScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MyBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MyBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MyBooksScreen().setVisible(true);
+                new MyBooks().setVisible(true);
             }
         });
     }
@@ -313,7 +318,6 @@ public class MyBooksScreen extends javax.swing.JFrame {
     private javax.swing.JLabel lblLibrary;
     private javax.swing.JLabel lblChangeMyInformations;
     private javax.swing.JLabel lblMyBooksIcon;
-    private javax.swing.JLabel lblNoBooks;
     private javax.swing.JLabel lblPerfil;
     private javax.swing.JLabel lblUserFullName;
     private javax.swing.JPanel panelBackgroundBooks;

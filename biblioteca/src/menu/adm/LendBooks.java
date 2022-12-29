@@ -16,23 +16,23 @@ import menu.Functionalities;
 import menu.all.AvailableBooks;
 import menu.all.ChangeMyInformations;
 import menu.all.Historic;
-import menu.all.MyBooksScreen;
+import menu.all.MyBooks;
 import menu.all.MyInformations;
 import util.TableModelBook;
 import util.TableModelUser;
 
 
-public class BorrowBooks extends javax.swing.JFrame {
+public class LendBooks extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 2369251302836935409L;
 	
 	private User user;
 	
-	public BorrowBooks() {
+	public LendBooks() {
         initComponents();
     }
 	
-	public BorrowBooks(User user) {
+	public LendBooks(User user) {
 		this.user = user;
 		initComponents();
 		setExtendedState(MAXIMIZED_BOTH);
@@ -409,7 +409,7 @@ public class BorrowBooks extends javax.swing.JFrame {
 
     private void lblMyBooksIconMouseClicked(java.awt.event.MouseEvent evt) {                                            
         if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen frame = new MyBooksScreen(user);
+            MyBooks frame = new MyBooks(user);
             frame.setVisible(true);
             this.dispose();
         }
@@ -538,20 +538,20 @@ public class BorrowBooks extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BorrowBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LendBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BorrowBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LendBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BorrowBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LendBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BorrowBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LendBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BorrowBooks().setVisible(true);
+                new LendBooks().setVisible(true);
             }
         });
     }

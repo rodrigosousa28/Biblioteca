@@ -15,7 +15,7 @@ import entities.User;
 import menu.Functionalities;
 import menu.all.AvailableBooks;
 import menu.all.Historic;
-import menu.all.MyBooksScreen;
+import menu.all.MyBooks;
 import menu.all.MyInformations;
 import util.TableModelRecord;
 
@@ -396,7 +396,7 @@ public class ReceiveBooks extends javax.swing.JFrame {
 
     private void lblMyBooksMouseClicked(java.awt.event.MouseEvent evt) {                                        
     	if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen frame = new MyBooksScreen(user);
+            MyBooks frame = new MyBooks(user);
             frame.setVisible(true);
             this.dispose();
         }
@@ -412,7 +412,7 @@ public class ReceiveBooks extends javax.swing.JFrame {
 
     private void lblMyBooksIconMouseClicked(java.awt.event.MouseEvent evt) {                                            
         if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen frame = new MyBooksScreen(user);
+            MyBooks frame = new MyBooks(user);
             frame.setVisible(true);
             this.dispose();
         }

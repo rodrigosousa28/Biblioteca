@@ -355,7 +355,7 @@ public class ChangeMyInformations extends javax.swing.JFrame {
 
     private void lblMyBooksIconMouseClicked(java.awt.event.MouseEvent evt) {                                            
         if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen frame = new MyBooksScreen(user);
+            MyBooks frame = new MyBooks(user);
             frame.setVisible(true);
             this.dispose();
         }
@@ -395,7 +395,7 @@ public class ChangeMyInformations extends javax.swing.JFrame {
 
     private void lblMyBooksMouseClicked(java.awt.event.MouseEvent evt) {                                        
     	if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen mbs = new MyBooksScreen(user);
+            MyBooks mbs = new MyBooks(user);
             mbs.setVisible(true);
             this.dispose();
         }
@@ -544,7 +544,7 @@ public class ChangeMyInformations extends javax.swing.JFrame {
     			}
     		}
     		JOptionPane.showMessageDialog(this, validString.concat(" alterado com sucesso. Você será redirecionado para a tela de login"));
-    		LoginScreen ls = new LoginScreen();
+    		Login ls = new Login();
     		ls.setVisible(true);
     		this.dispose();    		
     	}

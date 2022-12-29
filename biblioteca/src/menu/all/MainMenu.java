@@ -242,7 +242,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void lblMyBooksIconMouseClicked(java.awt.event.MouseEvent evt) {
     	if(evt.getButton()==MouseEvent.BUTTON1){
-            MyBooksScreen frame = new MyBooksScreen(user);
+            MyBooks frame = new MyBooks(user);
             frame.setVisible(true);
             this.dispose();
         }

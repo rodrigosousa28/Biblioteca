@@ -32,7 +32,7 @@ public class Functionalities {
 
 	private Functionalities() {}
 	
-	//used at LoginScreen
+	//used at Login
 	public static void Login(JFrame screen, JTextField txtLogin, JPasswordField txtPassword) {
 		DAO dao = new DAO();
         String username = txtLogin.getText();
@@ -82,17 +82,21 @@ public class Functionalities {
 
 	//used at MainMenu
 	public static void loadInformations
-	(JPanel panelBackgroundBooks, User user) {
-		
+	(JPanel panelBackgroundBooks, List<Book> books) {
+		JLabel lblNoBooks = new JLabel();
+		lblNoBooks.setFont(new java.awt.Font("Maiandra GD", 1, 48)); // NOI18N
+        lblNoBooks.setForeground(new java.awt.Color(102, 0, 0));
+        lblNoBooks.setText("Você não possui livros no momento...");
+        panelBackgroundBooks.add(lblNoBooks);
+        lblNoBooks.setVisible(false);
+        lblNoBooks.setBounds(10, -20, 870, 370);
+        
 		int xPanel = 70;
-	    int yPanel = 80;
 	    int widthPanel = 110;
 	    int heightPanel = 140;
 	    
 	    int xLabel = 30;
 	    int yLabel = 240;
-	    int widthLabel = 220;
-	    int heightLabel = 20;
 	    
 		JPanel panelImage;
         JLabel lblImageBook;
@@ -101,22 +105,22 @@ public class Functionalities {
         JLabel lblGenres;
         JLabel lblPages;
         
-        DAO dao = new DAO();
-        List<Book> myBooks = new ArrayList<>();
-		try {
-			myBooks = dao.findBooksByUser(user);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		for(int i = 0; i < myBooks.size(); i++) {
-			if(myBooks.get(i) == null) {
-				myBooks.remove(i);
+		for(int i = 0; i < books.size(); i++) {
+			if(books.get(i) == null) {
+				books.remove(i);
 			}
 		}
 		
+		if(books.size() == 0) {
+			lblNoBooks.setVisible(true);
+			return;
+		}
 
-		for(int i = 0; i < myBooks.size(); i++) {
+		for(int i = 0; i < books.size(); i++) {
+			//Maximum of 4 books in suggestBooks
+			if(i > 3) {
+				break;
+			}
 			panelImage = new JPanel();
 			lblImageBook = new JLabel();
 			lblName = new JLabel();
@@ -133,25 +137,26 @@ public class Functionalities {
 			panelImage.setLayout(null);
 			panelImage.add(lblImageBook);
 			panelImage.setBackground(new java.awt.Color(255, 255, 255));
-			panelImage.setBounds(xPanel, yPanel, widthPanel, heightPanel);
-			lblImageBook.setBounds(6, 5, widthPanel - 2, heightPanel - 10);
+			
+			panelImage.setBounds(xPanel, 80, widthPanel, heightPanel);
+			lblImageBook.setBounds(6, 5, 108, 130);
 			panelBackgroundBooks.add(panelImage);
 			
 			for(int j = 0; j < 4; j++) {
 				Component item = (Component) itens.get(j);
-				item.setBounds(xLabel, yLabel, widthLabel, heightLabel);
+				item.setBounds(xLabel, yLabel, 220, 20);
 				switch(j) {
 				case 0:
-					((JLabel) item).setText("Nome: ".concat(myBooks.get(i).getName()));
+					((JLabel) item).setText("Nome: ".concat(books.get(i).getName()));
 					break;
 				case 1:
-					((JLabel) item).setText("Autor: ".concat(myBooks.get(i).getAuthor()));
+					((JLabel) item).setText("Autor: ".concat(books.get(i).getAuthor()));
 					break;
 				case 2:
-					((JLabel) item).setText("Gêneros: ".concat(myBooks.get(i).getGenres()));
+					((JLabel) item).setText("Gêneros: ".concat(books.get(i).getGenres()));
 					break;
 				case 3:
-					((JLabel) item).setText("Páginas: ".concat(Integer.toString(myBooks.get(i).getNumberOfPages())));					
+					((JLabel) item).setText("Páginas: ".concat(Integer.toString(books.get(i).getNumberOfPages())));					
 					
 				}
 				panelBackgroundBooks.add(item);
@@ -160,133 +165,21 @@ public class Functionalities {
 			yLabel = 240;
 			xLabel += 320;
 			
-			if(myBooks.get(i).getImage() != null) {
-				ImageIcon icon = new ImageIcon(myBooks.get(i).getImage());
+			if(books.get(i).getImage() != null) {
+				ImageIcon icon = new ImageIcon(books.get(i).getImage());
 				icon.setImage(icon.getImage().getScaledInstance(panelImage.getWidth(),
 						panelImage.getHeight(), 100));
 				lblImageBook.setIcon(icon);
 				
-				panelImage.setBounds(xPanel, yPanel, widthPanel, heightPanel);
-				lblImageBook.setBounds(0, 5, widthPanel - 2, heightPanel - 10);
+				panelImage.setBounds(xPanel, 80, 110, 140);
+				lblImageBook.setBounds(0, 5, 108, 130);
 			}
 			
 			xPanel += 320;
 		}
 		
-        dao.close();
 	}
 	
-	public static void loadInformations(Book book,
-			JLabel lblName1, JLabel lblName2, JLabel lblName3,
-			JLabel lblAuthor1, JLabel lblAuthor2, JLabel lblAuthor3,
-			JLabel lblGenre1, JLabel lblGenre2, JLabel lblGenre3,
-			JLabel lblPages1, JLabel lblPages2, JLabel lblPages3,
-			JPanel panelImage1,JPanel panelImage2, JPanel panelImage3,
-			JLabel lblImageBook1, JLabel lblImageBook2, JLabel lblImageBook3) {
-		
-		DAO dao = new DAO();
-		try {
-			List<Book> suggestedBooks = dao.suggestBooks(book);
-			
-			try {
-				if(suggestedBooks.get(0) != null) {
-					lblName1.setText("Nome: ".concat(suggestedBooks.get(0).getName()));
-					lblAuthor1.setText("Autor: ".concat(suggestedBooks.get(0).getAuthor()));
-					lblGenre1.setText("Gênero(s): ".concat(suggestedBooks.get(0).getGenres()));
-					lblPages1.setText("Páginas: ".concat(Integer.toString(suggestedBooks.get(0).getNumberOfPages())));
-					ImageIcon iconOne = new ImageIcon(suggestedBooks.get(0).getImage());
-					iconOne.setImage(iconOne.getImage().getScaledInstance(panelImage1.getWidth(),
-							panelImage1.getHeight(), 100));
-					lblImageBook1.setIcon(iconOne);					
-				}else {
-					lblName1.setVisible(false);
-					lblAuthor1.setVisible(false);
-					lblGenre1.setVisible(false);
-					lblImageBook1.setVisible(false);
-				}
-				
-				if(suggestedBooks.get(1) != null) {
-					lblName2.setText("Nome: ".concat(suggestedBooks.get(1).getName()));
-					lblAuthor2.setText("Autor: ".concat(suggestedBooks.get(1).getAuthor()));
-					lblGenre2.setText("Gênero(s): ".concat(suggestedBooks.get(1).getGenres()));
-					lblPages2.setText("Páginas: ".concat(Integer.toString(suggestedBooks.get(1).getNumberOfPages())));
-					ImageIcon iconTwo = new ImageIcon(suggestedBooks.get(1).getImage());
-					iconTwo.setImage(iconTwo.getImage().getScaledInstance(panelImage2.getWidth(),
-							panelImage2.getHeight(), 100));
-					lblImageBook2.setIcon(iconTwo);
-				}else {
-					lblName2.setVisible(false);
-					lblAuthor2.setVisible(false);
-					lblGenre2.setVisible(false);
-					lblImageBook2.setVisible(false);					
-				}
-				
-				if(suggestedBooks.get(2) != null) {
-					lblName3.setText("Nome: ".concat(suggestedBooks.get(2).getName()));
-					lblAuthor3.setText("Autor: ".concat(suggestedBooks.get(2).getAuthor()));
-					lblGenre3.setText("Gênero(s): ".concat(suggestedBooks.get(2).getGenres()));
-					lblPages3.setText("Páginas: ".concat(Integer.toString(suggestedBooks.get(2).getNumberOfPages())));
-					ImageIcon iconThree = new ImageIcon(suggestedBooks.get(2).getImage());
-					iconThree.setImage(iconThree.getImage().getScaledInstance(panelImage3.getWidth(),
-							panelImage3.getHeight(), 100));
-					lblImageBook3.setIcon(iconThree);	
-				}else {
-					lblName3.setVisible(false);
-					lblAuthor3.setVisible(false);
-					lblGenre3.setVisible(false);
-					lblImageBook3.setVisible(false);							
-				}
-				
-			} catch(IndexOutOfBoundsException e) {
-				int i = suggestedBooks.size();
-				if(i == 0) {
-					lblName1.setVisible(false);
-					lblAuthor1.setVisible(false);
-					lblGenre1.setVisible(false);
-					lblPages1.setVisible(false);
-					lblImageBook1.setVisible(false);
-					
-					lblName2.setVisible(false);
-					lblAuthor2.setVisible(false);
-					lblGenre2.setVisible(false);
-					lblPages2.setVisible(false);
-					lblImageBook2.setVisible(false);
-					
-					lblName3.setVisible(false);
-					lblAuthor3.setVisible(false);
-					lblGenre3.setVisible(false);
-					lblPages3.setVisible(false);
-					lblImageBook3.setVisible(false);
-				}else if(i == 1) {
-					lblName2.setVisible(false);
-					lblAuthor2.setVisible(false);
-					lblGenre2.setVisible(false);
-					lblPages2.setVisible(false);
-					lblImageBook2.setVisible(false);
-					
-					lblName3.setVisible(false);
-					lblAuthor3.setVisible(false);
-					lblGenre3.setVisible(false);
-					lblPages3.setVisible(false);
-					lblImageBook3.setVisible(false);
-				}else if(i == 2) {
-					lblName3.setVisible(false);
-					lblAuthor3.setVisible(false);
-					lblGenre3.setVisible(false);
-					lblPages3.setVisible(false);
-					lblImageBook3.setVisible(false);
-					lblImageBook3.setVisible(false);
-				}
-			}
-			
-			
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-		
-	}
-
 	public static void registerUser
 	(JTextField txtName, JTextField txtRegistrationNumber, JTextField txtCPF,
 	JTextField txtUsername, JPasswordField txtPassword, JComboBox<String> cbbType) throws InvalidCpfException, AlreadyExistsException {
